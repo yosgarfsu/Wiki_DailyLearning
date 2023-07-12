@@ -1,6 +1,6 @@
 created: 20230712063836844
 creator: TidGi User
-modified: 20230712072158919
+modified: 20230712075459199
 modifier: TidGi User
 tags: 
 title: PX4 SimAttack 参数含义
@@ -12,20 +12,37 @@ wysiwyg: yes
 
 `ATK_APPLY_TYPE, 0` 掩码，控制攻击类型
 
->> bit 0 陀螺仪欺骗（IMU设置与速率控制将被同时应用）
->> bit 1 加速度计欺骗
->> bit 2 GPS 位置欺骗
->> bit 3 GPS 速度欺骗
->> bit 4 气压计高度干扰（暂时没用，仅做输出阻塞）
->> bit 5 磁强度计干扰（暂时没用，仅做输出阻塞）
+> bit 0 陀螺仪欺骗（IMU设置与速率控制将被同时应用）
+> bit 1 加速度计欺骗
+> bit 2 GPS 位置欺骗
+> bit 3 GPS 速度欺骗
+> bit 4 气压计高度干扰（暂时没用，仅做输出阻塞）
+> bit 5 磁强度计干扰（暂时没用，仅做输出阻塞）
 
 `ATK_MULTI_IMU, 0` 按位设置受影响的IMU，共可设置4个，一般使用3个
 
-`ATK_GPS_P_CLS, 0` GPS欺骗攻击种类，0 - Bias, 1 - Linear, 2 - Exponential
+`ATK_GPS_P_CLS, 0` GPS 位置欺骗攻击种类，0 - Bias, 1 - Linear, 2 - Exponential
 
-`ATK_GPS_P_IV, 0.01f` Set the initial value of deviation, based on the total deviation length.
+`ATK_GPS_P_IV, 0.01f` GPS 位置欺骗，Set the initial value of deviation, based on the total deviation length.
 
-`ATK_GPS_P_RATE, 1.00f` 设置偏差的增长速度（每秒）
+`ATK_GPS_P_RATE, 1.00f` GPS 位置欺骗，设置偏差的增长速度（每秒）
 
-`ATK_GPS_P_CAP, 1.0f` 
+`ATK_GPS_P_CAP, 1.0f` GPS 位置欺骗，Set the maximize length of deviation vector.
 
+`ATK_GPS_P_HDG, 0.0f` GPS 位置欺骗，Set the horizontal direction of deviation vector, use to convert deviation length to XY-axis.
+
+`ATK_GPS_P_PITCH, 0.0f` GPS 位置欺骗，Set the pitch angle of target deviation vector.
+
+`ATK_GPS_V_CLS, 0` GPS 速度欺骗攻击种类，0 - Bias, 1 - Linear, 2 - Exponential
+
+`ATK_GPS_V_IV, 0.01f` GPS 速度欺骗偏差-初始值
+
+`ATK_GPS_V_RATE, 1.00f` GPS 速度欺骗偏差，增长速度（每秒）
+
+`ATK_GPS_V_CAP, 1.0f` GPS 速度欺骗，Set the maximize length of deviation vector.
+
+`ATK_GPS_V_HDG, 0.0f` GPS 速度欺骗 - Heading. Set the horizontal direction of deviation vector, use to convert deviation length to XY-axis.
+
+`ATK_GPS_V_PITCH, 0.0f` GPS 速度欺骗，Set the pitch angle of target deviation vector.
+
+`ATK_GYR_BIAS, 0.00f` 陀螺仪欺骗，Roll bias设置
