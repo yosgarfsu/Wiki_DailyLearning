@@ -1,0 +1,31 @@
+created: 20230712063836844
+creator: TidGi User
+modified: 20230712072158919
+modifier: TidGi User
+tags: 
+title: PX4 SimAttack 参数含义
+wysiwyg: yes
+
+以下参数使用地面站QGC更改即可
+
+`ATK_COUNTDOWN_MS, 5000` 在Attack Flag设置后攻击生效的时间，毫秒
+
+`ATK_APPLY_TYPE, 0` 掩码，控制攻击类型
+
+>> bit 0 陀螺仪欺骗（IMU设置与速率控制将被同时应用）
+>> bit 1 加速度计欺骗
+>> bit 2 GPS 位置欺骗
+>> bit 3 GPS 速度欺骗
+>> bit 4 气压计高度干扰（暂时没用，仅做输出阻塞）
+>> bit 5 磁强度计干扰（暂时没用，仅做输出阻塞）
+
+`ATK_MULTI_IMU, 0` 按位设置受影响的IMU，共可设置4个，一般使用3个
+
+`ATK_GPS_P_CLS, 0` GPS欺骗攻击种类，0 - Bias, 1 - Linear, 2 - Exponential
+
+`ATK_GPS_P_IV, 0.01f` Set the initial value of deviation, based on the total deviation length.
+
+`ATK_GPS_P_RATE, 1.00f` 设置偏差的增长速度（每秒）
+
+`ATK_GPS_P_CAP, 1.0f` 
+
