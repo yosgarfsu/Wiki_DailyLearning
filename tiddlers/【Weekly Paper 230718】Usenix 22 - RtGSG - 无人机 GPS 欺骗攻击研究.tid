@@ -1,11 +1,11 @@
 created: 20230718133002847
 creator: Yosgarf
-modified: 20230718160836640
+modified: 20230718161411900
 modifier: Yosgarf
 tags: uav
 title: 【Weekly Paper 230718】Usenix 22 - RtGSG - 无人机 GPS 欺骗攻击研究
 
-[img width=960 [image2.png]]
+[img width=960 [https://raw.githubusercontent.com/yosgarfsu/Wiki_DailyLearning/main/tiddlers/image2.png]]
 
 这次介绍的论文主要对真实环境中 UAV GPS 的作用进行了讨论，目的是要了解仅通过 GPS 欺骗是否可以完全控制无人机的飞行，即攻击者是否可以通过 GPS 欺骗精确操纵无人机的方向和速度。论文中完整介绍了针对无人机的 GPS 欺骗攻击过程，并使用商用无人机进行了测试。结果表明，尽管无人机容易受到 GPS 欺骗，但由于其他类型传感器的存在，同时由于 GPS 数据使用方法的限制，完全的接管和控制无人机存在很大的难度，需要实时地有技巧性的操纵欺骗信号。
 
@@ -24,7 +24,7 @@ title: 【Weekly Paper 230718】Usenix 22 - RtGSG - 无人机 GPS 欺骗攻击�
 
 最初的实验发现，由于无人机可以切换到视觉定位，仅仅欺骗GPS定位是不够的。3.3节讨论了静态位置欺骗的影响。在这个实验中，无人机被编程悬停在某个位置。攻击者通过伪造无人机的实际位置，即欺骗位置在整个攻击过程中保持不变，来进行攻击。即使攻击者的目标仅仅是让无人机停止并悬停，实验结果仍然显示出无人机的反应是无法预测且无法控制的。
 
-[img width=480 [image1.png]]
+[img width=480 [https://raw.githubusercontent.com/yosgarfsu/Wiki_DailyLearning/main/tiddlers/image1.png]]
 
 由于EKF（扩展卡尔曼滤波器）在位置和速度估计中的错误，一旦启动EKF故障保护，无人机就会切换到降落模式并终止任何正在进行的任务。下图显示了这一情形。
 
@@ -34,7 +34,7 @@ title: 【Weekly Paper 230718】Usenix 22 - RtGSG - 无人机 GPS 欺骗攻击�
 
 在3.4节中，论文研究了欺骗动态路径的影响。该实验主要分析和理解无人机在面临动态路径欺骗时的行为。在动态路径欺骗场景下，攻击者在成功接管GPS后，向欺骗的位置添加速度，使无人机误以为它正在以某个航向移动。这激活了无人机姿态和位置控制机制，并迫使无人机向相反的方向移动。如下图所示。实验还发现，在引入第二个方向变化后，目标的成功率有所下降，只有17次飞行中的3次跟随了所需的方向变化。此外，由于攻击导致的动量，无人机飞行的轨迹呈曲线状，使得急转弯等动作无法实现。
 
-[img width=480 [image3.png]]
+[img width=480 [https://raw.githubusercontent.com/yosgarfsu/Wiki_DailyLearning/main/tiddlers/image3.png]]
 
 通过这些实验能够得出以下结论：
 
@@ -49,7 +49,7 @@ title: 【Weekly Paper 230718】Usenix 22 - RtGSG - 无人机 GPS 欺骗攻击�
 
 第4章论文主要讲述了实时 GPS 信号生成器 RtGSG 的设计与实现，提出并评估了接管后的方向和速度控制策略。
 
-[img width=480 [image4.png]]
+[img width=480 [https://raw.githubusercontent.com/yosgarfsu/Wiki_DailyLearning/main/tiddlers/image4.png]]
 
 实时GPS信号生成器 RtGSG 基于开源 GPS 信号模拟器 GPS-SDR-SIM ，由三个主要组件组成：供给器、GPS信号生成器和射频前端。这些模块使得RtGSG能够按需、即时、准确地操纵轨迹并发送生成的信号。
 尽管传统的攻击可以确保无人机朝特定方向行进，但由于缺乏速度控制，无人机变得无法控制。本系统通过欺骗目标，使其相信修正已经生效，实现速度控制。
