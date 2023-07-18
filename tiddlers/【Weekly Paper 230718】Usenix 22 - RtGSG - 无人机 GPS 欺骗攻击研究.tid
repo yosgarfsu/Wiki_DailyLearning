@@ -1,6 +1,6 @@
 created: 20230718133002847
 creator: Yosgarf
-modified: 20230718155347809
+modified: 20230718160019175
 modifier: Yosgarf
 tags: uav
 title: 【Weekly Paper 230718】Usenix 22 - RtGSG - 无人机 GPS 欺骗攻击研究
@@ -28,7 +28,7 @@ title: 【Weekly Paper 230718】Usenix 22 - RtGSG - 无人机 GPS 欺骗攻击�
 
 由于EKF（扩展卡尔曼滤波器）在位置和速度估计中的错误，一旦启动EKF故障保护，无人机就会切换到降落模式并终止任何正在进行的任务。下图显示了这一情形。
 
-[img width=480 [image.png]]
+[img width=480 [https://github.com/yosgarfsu/Wiki_DailyLearning/blob/main/tiddlers/image.png]]
 
 此外，由于误差传播，并迫使飞行控制器进行更大的修正，因此，这种攻击的方向不仅是随机的、无法控制的，它覆盖的距离也是无法预测的。实验还发现使用仿真环境模拟的攻击与真实环境中无人机的反应存在显著差异。
 
