@@ -1,6 +1,6 @@
 created: 20230718133002847
 creator: Yosgarf
-modified: 20230819092300352
+modified: 20230819092630408
 modifier: Yosgarf
 tags: uav
 title: 【Weekly Paper 230718】Usenix 22 - RtGSG - 无人机 GPS 欺骗攻击研究
@@ -9,7 +9,7 @@ wysiwyg: yes
 [img width=960 [https://raw.githubusercontent.com/yosgarfsu/Wiki_DailyLearning/main/tiddlers/image2.png]]
 
 [img[favicon.ico]]
-
+[img[image.png]]
 这次介绍的论文主要对真实环境中 UAV GPS 的作用进行了讨论，目的是要了解仅通过 GPS 欺骗是否可以完全控制无人机的飞行，即攻击者是否可以通过 GPS 欺骗精确操纵无人机的方向和速度。论文中完整介绍了针对无人机的 GPS 欺骗攻击过程，并使用商用无人机进行了测试。结果表明，尽管无人机容易受到 GPS 欺骗，但由于其他类型传感器的存在，同时由于 GPS 数据使用方法的限制，完全的接管和控制无人机存在很大的难度，需要实时地有技巧性的操纵欺骗信号。
 
 这篇论文的主要贡献有：
@@ -77,5 +77,3 @@ wysiwyg: yes
 * 人工控制的限制
 ** 需要训练，且控制延迟，不如直接遥控精确。
 ** 需要追踪系统提供无人机实时位置。
-
-
